@@ -1,13 +1,18 @@
-let bodyCss = `
-font-family: sans-serif;
-text-align: center;
-transition: all 0.5s;
-background-image: linear-gradient(160deg, rgb(250, 37, 125), rgb(249, 95, 133), rgb(29, 213, 199), rgb(52, 219, 216));
-background-repeat: no-repeat;
-background-color: none;
-height: 100%;
-color: white;
-`
+  let purple = "#490051";
+  let cyan = "#1DD5C7";
+  let pink = "#f95f85";
+  let magenta = "#fa257d";
+
+  let bodyCss = `
+  font-family: sans-serif;
+  text-align: center;
+  transition: all 0.5s;
+  background-repeat: no-repeat;
+  background-color: none;
+  background-image: linear-gradient(0deg, ${magenta}, ${purple});
+  height: 100vh;
+  }
+    `
 
   document.body.style.cssText = bodyCss;
 
@@ -15,20 +20,39 @@ color: white;
   let h1 = document.createElement('h1');
   h1.innerHTML = "What drink would you like?";
   document.body.append(h1);
-  h1.style.marginTop = "50px";
+  h1.style.marginTop = "20px";
+  h1.style.fontFamily = "'Bungee Outline', cursive";
+  h1.style.fontWeight = "normal";
+  h1.style.color = cyan;
+  h1.style.fontSize = "55px";
+  h1.style.lineHeight = "1.3";
+  h1.style.animation = "2s h1Appear";
+
 
   let h2 = document.createElement('h2');
-  h2.innerHTML = "Please, select your temperature";
+  h2.innerHTML = "PLEASE, SELECT YOUR TEMPERATURE";
   document.body.append(h2);
+  h2.style.fontFamily = "'Orbitron', sans-serif";
+  h2.style.fontSize = "20px";
+  h2.style.color = cyan;
+  h2.style.fontWeight = "normal";
+  h2.style.lineHeight = "2";
+
+
 
 
 
   let image = document.createElement('img');
   image.style.height = "200px";
+  image.style.marginTop = "20px";
   let slush = "assets/img/slush.webp";
   image.src = slush;
 
-  let imgAnimationOpen = `
+  let imgAnimation = `
+  height: 200px;
+  animation: 2s imgAnimationOpen;
+  animation: 2s imgAnimationClose;
+
   @keyframes animationOpen {
     from {
       z-index: -9999;
@@ -41,9 +65,8 @@ color: white;
       height: 200px;
       opacity: 1;
     }
-  }`
+  }
 
-  let imgAnimationClose = `
   @keyframes animationClose {
 
     from {
@@ -57,7 +80,10 @@ color: white;
       height: 0px;
       opacity: 0;
     }
-  }
+  }`
+
+  let imgAnimationClose = `
+
   `
 
 
@@ -100,22 +126,32 @@ color: white;
   arrowFastPlus.innerHTML = "+10";
 
 
+    let numberCssText = `
+    padding: 0px 30px;
+    color: ${purple};
+    font-size: 30px;
+    `;
+
   counter.append(arrowFastMinus);
   counter.append(arrowMinus);
   counter.append(number);
-  number.after("°");
+  let grade = number.after("°");
   counter.append(arrowPlus);
   counter.append(arrowFastPlus);
+
+
+  number.style.cssText = numberCssText;
 
   let arrow = document.querySelectorAll('.arrow');
   for(let a=0; a<arrow.length; a++) {
     arrow[a].style.cssText = `
-    background-color: lightpink;
-    color: white;
+    background-color: ${purple};
+    color: ${cyan};
     border: none;
-    padding: 20px;
+    padding: 10px 20px;
     margin: 10px;
-    font-size: 20px;
+    font-size: 30px;
+    transform: skewX(-20deg);
     transition: all 0.3s;
     `;
   }
@@ -126,9 +162,14 @@ color: white;
   progress.value = "30";
   progress.min = "0";
   progress.max = "170";
-  document.body.append(progress);
+  counter.append(progress);
   progress.style.width = "90%";
-  progress.style.height = "15px";
+
+
+  counter.style.position = "fixed";
+  counter.style.bottom = "10px";
+  counter.style.left = "0";
+  counter.style.right = "0";
 
 
 
@@ -136,18 +177,21 @@ color: white;
           const num = parseInt(number.innerHTML);
           number.innerHTML = num - 10;
           conditions();
+
         }
 
         function arrowMinusFunction() {
           const num = parseInt(number.innerHTML);
           number.innerHTML = num - 1;
           conditions();
+
         }
 
         function arrowPlusFunction() {
           const num = parseInt(number.innerHTML);
           number.innerHTML = num + 1;
           conditions();
+
         }
 
 
@@ -173,7 +217,7 @@ color: white;
             let ice = "assets/img/ice.webp";
             image.src = ice;
             h3.innerHTML = "Or maybe you'll appreciate a delicious glass of pure ice?";
-            document.body.style.backgroundColor = "gray";
+            document.body.style.backgroundColor = "white";
             progress.value = "10";
 
           }
@@ -182,7 +226,7 @@ color: white;
             let iceCream = "assets/img/ice-cream.webp";
             image.src = iceCream;
             h3.innerHTML = "I guess you want ice cream at this point?";
-            document.body.style.backgroundColor = "white";
+            document.body.style.backgroundColor = "gray";
             progress.value = "20";
 
           }
@@ -199,7 +243,7 @@ color: white;
             let milk = "assets/img/milk.webp";
             image.src = milk;
             h3.innerHTML = "Fresh milk";
-            document.body.style.backgroundColor = "gray";
+            document.body.style.backgroundColor = "blue";
             progress.value = "40";
           }
 
@@ -236,7 +280,7 @@ color: white;
             image.src = water;
             h3.innerHTML = "Water";
             progress.value = "80";
-
+            document.body.style.backgroundColor = "cyan";
           }
 
           if(number.innerHTML >= 30 && number.innerHTML <= 37) {
@@ -244,7 +288,7 @@ color: white;
             image.src = bubbleTea;
             h3.innerHTML = "Bubble tea";
             progress.value = "90";
-
+            document.body.style.backgroundColor = "lightgreen";
           }
 
           if(number.innerHTML >= 38 && number.innerHTML <= 49) {
@@ -252,7 +296,7 @@ color: white;
             image.src = sake;
             h3.innerHTML = "Sake";
             progress.value = "100";
-
+            document.body.style.backgroundColor = "green";
           }
 
           if(number.innerHTML >= 50 && number.innerHTML <= 59) {
@@ -260,6 +304,7 @@ color: white;
             image.src = mulledWine;
             h3.innerHTML = "Mulled wine";
             progress.value = "110";
+            document.body.style.backgroundColor = "blue";
 
           }
 
@@ -268,6 +313,7 @@ color: white;
             image.src = irishCoffee;
             h3.innerHTML = "Irish coffee";
             progress.value = "120";
+            document.body.style.backgroundColor = "lightpink";
 
           }
 
@@ -276,6 +322,7 @@ color: white;
             image.src = hotChocolate;
             h3.innerHTML = "Hot chocolate";
             progress.value = "130";
+            document.body.style.backgroundColor = "red";
 
           }
 
@@ -285,6 +332,7 @@ color: white;
             image.src = greenTea;
             h3.innerHTML = "Green tea";
             progress.value = "140";
+            document.body.style.backgroundColor = "gray";
 
           }
 
@@ -294,6 +342,7 @@ color: white;
             image.src = blackTea;
             h3.innerHTML = "Black tea";
             progress.value = "150";
+            document.body.style.backgroundColor = "navy";
 
           }
 
@@ -303,6 +352,7 @@ color: white;
             image.src = coffee;
             h3.innerHTML = "Coffee";
             progress.value = "160";
+            document.body.style.backgroundColor = "white";
 
           }
 
