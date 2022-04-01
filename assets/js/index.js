@@ -127,7 +127,6 @@
 
 
     let numberCssText = `
-    padding: 0px 30px;
     color: ${purple};
     font-size: 30px;
     `;
@@ -135,12 +134,15 @@
   counter.append(arrowFastMinus);
   counter.append(arrowMinus);
   counter.append(number);
-  let grade = number.after("°");
+  number.insertAdjacentHTML("afterend", "<span class='grade'>°</span>");
   counter.append(arrowPlus);
   counter.append(arrowFastPlus);
 
 
   number.style.cssText = numberCssText;
+
+  let grade = document.querySelector('.grade');
+  grade.style.cssText = numberCssText;
 
   let arrow = document.querySelectorAll('.arrow');
   for(let a=0; a<arrow.length; a++) {
