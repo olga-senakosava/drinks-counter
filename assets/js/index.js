@@ -122,6 +122,7 @@ color: white;
 
 
   let progress = document.createElement('progress');
+  progress.className = "progress";
   progress.value = "30";
   progress.min = "0";
   progress.max = "170";
