@@ -21,7 +21,7 @@
   h1.innerHTML = "What drink would you like?";
   document.body.append(h1);
   h1.style.marginTop = "20px";
-  h1.style.fontFamily = "'Bungee Outline', cursive";
+  h1.style.fontFamily = "'VT323', monospace";
   h1.style.fontWeight = "normal";
   h1.style.color = cyan;
   h1.style.fontSize = "55px";
@@ -32,7 +32,7 @@
   let h2 = document.createElement('h2');
   h2.innerHTML = "PLEASE, SELECT YOUR TEMPERATURE";
   document.body.append(h2);
-  h2.style.fontFamily = "'Orbitron', sans-serif";
+  h2.style.fontFamily = "'Quantico', sans-serif";
   h2.style.fontSize = "20px";
   h2.style.color = cyan;
   h2.style.fontWeight = "normal";
@@ -98,6 +98,9 @@
   h3.innerHTML = "Slush";
   h3.className = "image-title";
   document.body.append(h3);
+  h3.style.fontFamily = "'Quantico', sans-serif";
+  h3.style.color = cyan;
+
 
 
   let counter = document.createElement('div');
