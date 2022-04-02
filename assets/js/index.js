@@ -41,6 +41,61 @@
   h2.style.animation = "1.3s h2Appear"
 
 
+  let arrowCyan = "assets/img/arrow-cyan.svg";
+  let arrowPurple = "assets/img/arrow-purple.svg";
+  let arrowCyanPurple = "assets/img/arrow-cyan-purple.svg";
+  let arrowCss = `
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  z-index: -9999;
+  `;
+
+
+  let arrow1 = document.createElement('img');
+  arrow1.src = arrowCyan;
+  document.body.append(arrow1);
+  arrow1.style.cssText = arrowCss;
+  arrow1.style.top = "45%";
+  arrow1.style.animation = "1.3s arrowMove";
+
+  let arrow2 = document.createElement('img');
+  arrow2.src = arrowCyan;
+  document.body.append(arrow2);
+  arrow2.style.cssText = arrowCss;
+  arrow2.style.top = "50%";
+  arrow2.style.animation = "1.4s arrowMove";
+
+
+  let arrow3 = document.createElement('img');
+  arrow3.src = arrowCyanPurple;
+  document.body.append(arrow3);
+  arrow3.style.cssText = arrowCss;
+  arrow3.style.top = "55%";
+  arrow3.style.animation = "1.5s arrowMove";
+
+
+  let arrow4 = document.createElement('img');
+  arrow4.src = arrowPurple;
+  document.body.append(arrow4);
+  arrow4.style.cssText = arrowCss;
+  arrow4.style.top = "60%";
+  arrow4.style.animation = "1.6s arrowMove";
+
+
+  let arrow5 = document.createElement('img');
+  arrow5.src = arrowPurple;
+  document.body.append(arrow5);
+  arrow5.style.cssText = arrowCss;
+  arrow5.style.top = "65%";
+  arrow5.style.animation = "1.7s arrowMove";
+
+
+
 
 
 
