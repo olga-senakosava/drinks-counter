@@ -2,14 +2,14 @@
   let cyan = "#1DD5C7";
   let pink = "#f95f85";
   let magenta = "#fa257d";
+  let orange = "#FF9A3C";
 
   let bodyCss = `
   font-family: sans-serif;
   text-align: center;
   transition: all 0.5s;
   background-repeat: no-repeat;
-  background-color: none;
-  background-image: linear-gradient(0deg, ${magenta}, ${purple});
+  background-image: linear-gradient(0deg, ${cyan}, ${purple});
   height: 100vh;
   }
     `
@@ -20,31 +20,34 @@
   let h1 = document.createElement('h1');
   h1.innerHTML = "What drink would you like?";
   document.body.append(h1);
-  h1.style.marginTop = "20px";
+  h1.style.marginTop = "0px";
   h1.style.fontFamily = "'VT323', monospace";
   h1.style.fontWeight = "normal";
   h1.style.color = cyan;
-  h1.style.fontSize = "55px";
+  h1.style.fontSize = "70px";
   h1.style.lineHeight = "1.3";
-  h1.style.animation = "2s h1Appear";
+  h1.style.animation = "1s h1Appear";
 
 
   let h2 = document.createElement('h2');
-  h2.innerHTML = "PLEASE, SELECT YOUR TEMPERATURE";
+  h2.innerHTML = "select your temperature";
   document.body.append(h2);
-  h2.style.fontFamily = "'Quantico', sans-serif";
-  h2.style.fontSize = "20px";
+  h2.style.fontFamily = "'Geo', sans-serif";
+  h2.style.fontSize = "30px";
+  h2.style.letterSpacing = "0.1em";
   h2.style.color = cyan;
   h2.style.fontWeight = "normal";
   h2.style.lineHeight = "2";
+  h2.style.animation = "1.3s h2Appear"
 
 
 
 
 
   let image = document.createElement('img');
-  image.style.height = "200px";
+  image.style.height = "150px";
   image.style.marginTop = "20px";
+  image.style.animation = "2s imageAppear";
   let slush = "assets/img/slush.webp";
   image.src = slush;
 
@@ -98,13 +101,21 @@
   h3.innerHTML = "Slush";
   h3.className = "image-title";
   document.body.append(h3);
-  h3.style.fontFamily = "'Quantico', sans-serif";
-  h3.style.color = cyan;
+  h3.style.fontFamily = "'Geo', sans-serif";
+  h3.style.color = purple;
+  h3.style.letterSpacing = "0.1em";
+  h3.style.fontSize = "30px";
+  h3.style.marginTop = "25px";
+  h3.style.marginLeft = "30px";
+  h3.style.marginRight = "30px";
+  h3.style.animation = "2.5s h3Appear";
+
 
 
 
   let counter = document.createElement('div');
   document.body.append(counter);
+  counter.style.animation = "1s counterAppear";
 
 
   let arrowFastMinus = document.createElement('button');
@@ -120,6 +131,16 @@
   number.innerHTML = "0";
 
 
+  let numberCssText = `
+  color: ${purple};
+  font-size: 50px;
+  font-family: 'Geo', sans-serif;
+  `;
+  number.style.cssText = numberCssText;
+  number.style.marginLeft = "40px";
+
+
+
   let arrowPlus = document.createElement('button');
   arrowPlus.className = "arrow arrow-plus";
   arrowPlus.innerHTML = "+1";
@@ -129,11 +150,6 @@
   arrowFastPlus.innerHTML = "+10";
 
 
-    let numberCssText = `
-    color: ${purple};
-    font-size: 30px;
-    `;
-
   counter.append(arrowFastMinus);
   counter.append(arrowMinus);
   counter.append(number);
@@ -142,10 +158,9 @@
   counter.append(arrowFastPlus);
 
 
-  number.style.cssText = numberCssText;
-
   let grade = document.querySelector('.grade');
   grade.style.cssText = numberCssText;
+  grade.style.marginRight = " 33px";
 
   let arrow = document.querySelectorAll('.arrow');
   for(let a=0; a<arrow.length; a++) {
@@ -155,20 +170,20 @@
     border: none;
     padding: 10px 20px;
     margin: 10px;
-    font-size: 30px;
+    font-size: 40px;
+    font-family: 'Geo', sans-serif;
     transform: skewX(-20deg);
     transition: all 0.3s;
     `;
+
+    if(number.innerHTML >= 20) {
+      arrow[a].style.color = orange;
+    }
+
+    if(number.innerHTML <= 19) {
+      arrow[a].style.color = cyan;
+    }
   }
-
-
-  let progress = document.createElement('progress');
-  progress.className = "progress";
-  progress.value = "30";
-  progress.min = "0";
-  progress.max = "170";
-  counter.append(progress);
-  progress.style.width = "90%";
 
 
   counter.style.position = "fixed";
@@ -213,122 +228,84 @@
             let freeze = "assets/img/freeze.webp";
             image.src = freeze;
             h3.innerHTML = "Random fact! A kpop band named Stray kids has a song. It's called FREEZE. Just saying.";
-            document.body.style.backgroundColor = "black";
-            progress.value = "0";
-
           }
 
           if(number.innerHTML >= -31 && number.innerHTML <= -24) {
             let ice = "assets/img/ice.webp";
             image.src = ice;
-            h3.innerHTML = "Or maybe you'll appreciate a delicious glass of pure ice?";
-            document.body.style.backgroundColor = "white";
-            progress.value = "10";
-
+            h3.innerHTML = "Some people like a glass of ice too";
           }
 
           if(number.innerHTML >= -25 && number.innerHTML < -5) {
             let iceCream = "assets/img/ice-cream.webp";
             image.src = iceCream;
-            h3.innerHTML = "I guess you want ice cream at this point?";
-            document.body.style.backgroundColor = "gray";
-            progress.value = "20";
-
+            h3.innerHTML = "Ice-cream, maybe?";
           }
 
           if(number.innerHTML >= -5 && number.innerHTML <= 0) {
             image.src = slush;
             image.title = "Watermelon juice photo created by mrsiraphol - www.freepik.com";
             h3.innerHTML = "Slush";
-            document.body.style.backgroundColor = "lightblue";
-            progress.value = "30";
           }
 
           if(number.innerHTML >= 1 && number.innerHTML <= 4) {
             let milk = "assets/img/milk.webp";
             image.src = milk;
             h3.innerHTML = "Fresh milk";
-            document.body.style.backgroundColor = "blue";
-            progress.value = "40";
           }
 
           if(number.innerHTML >= 5 && number.innerHTML <= 9) {
             let beer = "assets/img/beer.webp";
             image.src = beer;
             h3.innerHTML = "Beer";
-            document.body.style.backgroundColor = "maroon";
-            progress.value = "50";
-
           }
 
           if(number.innerHTML >= 10 && number.innerHTML <= 14) {
             let whiteWine = "assets/img/white-wine.webp";
             image.src = whiteWine;
             h3.innerHTML = "White wine";
-            document.body.style.backgroundColor = "lightyellow";
-            document.body.style.color = "black";
-            progress.value = "60";
-
           }
 
           if(number.innerHTML >= 15 && number.innerHTML <= 19) {
             let redWine = "assets/img/red-wine.webp";
             image.src = redWine;
             h3.innerHTML = "Red wine";
-            document.body.style.backgroundColor = "darkred";
-            progress.value = "70";
-
           }
 
           if(number.innerHTML >= 20 && number.innerHTML <= 29) {
             let water = "assets/img/water.webp";
             image.src = water;
             h3.innerHTML = "Water";
-            progress.value = "80";
-            document.body.style.backgroundColor = "cyan";
           }
 
           if(number.innerHTML >= 30 && number.innerHTML <= 37) {
             let bubbleTea = "assets/img/bubble-tea.webp";
             image.src = bubbleTea;
             h3.innerHTML = "Bubble tea";
-            progress.value = "90";
-            document.body.style.backgroundColor = "lightgreen";
           }
 
           if(number.innerHTML >= 38 && number.innerHTML <= 49) {
             let sake = "assets/img/sake.webp";
             image.src = sake;
             h3.innerHTML = "Sake";
-            progress.value = "100";
-            document.body.style.backgroundColor = "green";
           }
 
           if(number.innerHTML >= 50 && number.innerHTML <= 59) {
             let mulledWine = "assets/img/mulled-wine.webp";
             image.src = mulledWine;
             h3.innerHTML = "Mulled wine";
-            progress.value = "110";
-            document.body.style.backgroundColor = "blue";
-
           }
 
           if(number.innerHTML >= 60 && number.innerHTML <= 65) {
             let irishCoffee = "assets/img/irish-coffee.webp";
             image.src = irishCoffee;
             h3.innerHTML = "Irish coffee";
-            progress.value = "120";
-            document.body.style.backgroundColor = "lightpink";
-
           }
 
           if(number.innerHTML >= 66 && number.innerHTML <= 71) {
             let hotChocolate = "assets/img/hot-chocolate.webp";
             image.src = hotChocolate;
             h3.innerHTML = "Hot chocolate";
-            progress.value = "130";
-            document.body.style.backgroundColor = "red";
-
           }
 
 
@@ -336,9 +313,6 @@
             let greenTea = "assets/img/green-tea.webp";
             image.src = greenTea;
             h3.innerHTML = "Green tea";
-            progress.value = "140";
-            document.body.style.backgroundColor = "gray";
-
           }
 
 
@@ -346,9 +320,6 @@
             let blackTea = "assets/img/black-tea.webp";
             image.src = blackTea;
             h3.innerHTML = "Black tea";
-            progress.value = "150";
-            document.body.style.backgroundColor = "navy";
-
           }
 
 
@@ -356,9 +327,6 @@
             let coffee = "assets/img/coffee.webp";
             image.src = coffee;
             h3.innerHTML = "Coffee";
-            progress.value = "160";
-            document.body.style.backgroundColor = "white";
-
           }
 
 
@@ -366,11 +334,16 @@
             let alcool = "assets/img/alcool.webp";
             image.src = alcool;
             h3.innerHTML = "Choose your fighter";
-            document.body.style.backgroundColor = "black";
-            document.body.style.color = "white";
-            progress.value = "170";
-
           }
+
+          if(number.innerHTML >= 20) {
+            document.body.style.backgroundImage = `linear-gradient(0deg, ${orange}, ${purple})`;
+          }
+
+          if(number.innerHTML <= 19) {
+            document.body.style.backgroundImage = `linear-gradient(0deg, ${cyan}, ${purple})`;
+          }
+
 
         }
 
