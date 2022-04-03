@@ -205,7 +205,7 @@
 
 
   counter.style.position = "fixed";
-  counter.style.bottom = "5%";
+  counter.style.bottom = "7%";
   counter.style.left = "0";
   counter.style.right = "0";
 
