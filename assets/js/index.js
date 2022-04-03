@@ -42,8 +42,8 @@
 
 
   let arrowCyan = "assets/img/arrow-cyan.svg";
-  let arrowPurple = "assets/img/arrow-purple.svg";
   let arrowCyanPurple = "assets/img/arrow-cyan-purple.svg";
+  let arrowPurple = "assets/img/arrow-purple.svg";
   let arrowCss = `
   width: 30px;
   height: 30px;
@@ -106,46 +106,6 @@
   let slush = "assets/img/slush.webp";
   image.src = slush;
 
-  let imgAnimation = `
-  height: 200px;
-  animation: 2s imgAnimationOpen;
-  animation: 2s imgAnimationClose;
-
-  @keyframes animationOpen {
-    from {
-      z-index: -9999;
-      height: 0px;
-      opacity: 0;
-    }
-
-    to {
-      z-index: 9999;
-      height: 200px;
-      opacity: 1;
-    }
-  }
-
-  @keyframes animationClose {
-
-    from {
-      z-index: 9999;
-      height: 200px;
-      opacity: 1;
-    }
-
-    to {
-      z-index: -9999;
-      height: 0px;
-      opacity: 0;
-    }
-  }`
-
-  let imgAnimationClose = `
-
-  `
-
-
-
 
   let imageContainer = document.createElement('div');
   document.body.append(imageContainer);
@@ -173,13 +133,13 @@
   counter.style.animation = "1s counterAppear";
 
 
-  let arrowFastMinus = document.createElement('button');
-  arrowFastMinus.className = "arrow arrow-fast-minus";
-  arrowFastMinus.innerHTML = "-10";
+  let fastMinus = document.createElement('button');
+  fastMinus.className = "direction fast-minus";
+  fastMinus.innerHTML = "-10";
 
-  let arrowMinus = document.createElement('button');
-  arrowMinus.className = "arrow arrow-minus";
-  arrowMinus.innerHTML = "-1";
+  let minus = document.createElement('button');
+  minus.className = "direction minus";
+  minus.innerHTML = "-1";
 
   let number = document.createElement('span');
   number.className = "number";
@@ -196,30 +156,31 @@
 
 
 
-  let arrowPlus = document.createElement('button');
-  arrowPlus.className = "arrow arrow-plus";
-  arrowPlus.innerHTML = "+1";
+  let plus = document.createElement('button');
+  plus.className = "direction plus";
+  plus.innerHTML = "+1";
 
-  let arrowFastPlus = document.createElement('button');
-  arrowFastPlus.className = "arrow arrow-fast-plus";
-  arrowFastPlus.innerHTML = "+10";
+  let fastPlus = document.createElement('button');
+  fastPlus.className = "direction fast-plus";
+  fastPlus.innerHTML = "+10";
 
 
-  counter.append(arrowFastMinus);
-  counter.append(arrowMinus);
+  counter.append(fastMinus);
+  counter.append(minus);
   counter.append(number);
   number.insertAdjacentHTML("afterend", "<span class='grade'>°</span>");
-  counter.append(arrowPlus);
-  counter.append(arrowFastPlus);
+  counter.append(plus);
+  counter.append(fastPlus);
 
 
   let grade = document.querySelector('.grade');
   grade.style.cssText = numberCssText;
   grade.style.marginRight = " 33px";
 
-  let arrow = document.querySelectorAll('.arrow');
-  for(let a=0; a<arrow.length; a++) {
-    arrow[a].style.cssText = `
+  let direction = document.querySelectorAll('.direction');
+
+  for(let a=0; a<direction.length; a++) {
+    direction[a].style.cssText = `
     background-color: ${purple};
     color: ${cyan};
     border: none;
@@ -228,17 +189,12 @@
     font-size: 40px;
     font-family: 'Geo', sans-serif;
     transform: skewX(-20deg);
+    cursor: pointer;
     transition: all 0.3s;
     `;
 
-    if(number.innerHTML >= 20) {
-      arrow[a].style.color = orange;
-    }
-
-    if(number.innerHTML <= 19) {
-      arrow[a].style.color = cyan;
-    }
   }
+
 
 
   counter.style.position = "fixed";
@@ -248,21 +204,21 @@
 
 
 
-        function arrowFastMinusFunction() {
+        function fastMinusFunction() {
           const num = parseInt(number.innerHTML);
           number.innerHTML = num - 10;
           conditions();
 
         }
 
-        function arrowMinusFunction() {
+        function minusFunction() {
           const num = parseInt(number.innerHTML);
           number.innerHTML = num - 1;
           conditions();
 
         }
 
-        function arrowPlusFunction() {
+        function plusFunction() {
           const num = parseInt(number.innerHTML);
           number.innerHTML = num + 1;
           conditions();
@@ -270,7 +226,7 @@
         }
 
 
-        function arrowFastPlusFunction() {
+        function fastPlusFunction() {
           const num = parseInt(number.innerHTML);
           number.innerHTML = num + 10;
           conditions();
@@ -282,7 +238,7 @@
           if(number.innerHTML <= -32) {
             let freeze = "assets/img/freeze.webp";
             image.src = freeze;
-            h3.innerHTML = "Random fact! A kpop band named Stray kids has a song. It's called FREEZE. Just saying.";
+            h3.innerHTML = "Random fact! A kpop band named Stray kids has a song. It's called FREEZE. <br> Just saying.";
           }
 
           if(number.innerHTML >= -31 && number.innerHTML <= -24) {
@@ -393,39 +349,58 @@
 
           if(number.innerHTML >= 20) {
             document.body.style.backgroundImage = `linear-gradient(0deg, ${orange}, ${purple})`;
+            h1.style.color = orange;
+            h2.style.color = orange;
           }
 
           if(number.innerHTML <= 19) {
             document.body.style.backgroundImage = `linear-gradient(0deg, ${cyan}, ${purple})`;
+            h1.style.color = cyan;
+            h2.style.color = cyan;
+          }
+
+          if(number.innerHTML >= 20) {
+            for(let a=0; a<direction.length; a++) {
+              direction[a].style.color = orange;
+            }
+          }
+
+          if(number.innerHTML <= 19) {
+            for(let a=0; a<direction.length; a++) {
+              direction[a].style.color = cyan;
+            }
           }
 
 
         }
+
 
 
         function keysPressed() {
           if(event.key == "ArrowLeft") {
-            arrowMinusFunction();
+            minusFunction();
           }
 
           if(event.key == "ArrowRight") {
-            arrowPlusFunction();
+            plusFunction();
           }
 
           if(event.key == "ArrowDown") {
-            arrowFastMinusFunction();
+            fastMinusFunction();
           }
 
           if(event.key == "ArrowUp") {
-            arrowFastPlusFunction();
+            fastPlusFunction();
           }
         }
 
 
 
-        arrowFastMinus.addEventListener('click', arrowFastMinusFunction);
-        arrowMinus.addEventListener('click', arrowMinusFunction);
-        arrowPlus.addEventListener('click', arrowPlusFunction);
-        arrowFastPlus.addEventListener('click', arrowFastPlusFunction);
+
+
+        fastMinus.addEventListener('click', fastMinusFunction);
+        minus.addEventListener('click', minusFunction);
+        plus.addEventListener('click', plusFunction);
+        fastPlus.addEventListener('click', fastPlusFunction);
 
         window.addEventListener('keydown', keysPressed);
