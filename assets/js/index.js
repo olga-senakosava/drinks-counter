@@ -11,6 +11,7 @@
   background-repeat: no-repeat;
   background-image: linear-gradient(0deg, ${cyan}, ${purple});
   height: 100vh;
+  overflow-x: hidden;
   }
     `
 
@@ -102,6 +103,10 @@
   let image = document.createElement('img');
   image.style.height = "150px";
   image.style.marginTop = "20px";
+  image.style.position = "absolute";
+  image.style.top = "30%";
+  image.style.left = "50%";
+  image.style.transform = "translateX(-50%)";
   image.style.animation = "2s imageAppear";
   let slush = "assets/img/slush.webp";
   image.src = slush;
@@ -121,8 +126,10 @@
   h3.style.letterSpacing = "0.1em";
   h3.style.fontSize = "30px";
   h3.style.marginTop = "25px";
-  h3.style.marginLeft = "30px";
-  h3.style.marginRight = "30px";
+  h3.style.position = "absolute";
+  h3.style.top = "60%";
+  h3.style.left = "50%";
+  h3.style.transform = "translateX(-50%)";
   h3.style.animation = "2.5s h3Appear";
 
 
@@ -347,6 +354,9 @@
             h3.innerHTML = "Choose your fighter";
           }
 
+
+
+
           if(number.innerHTML >= 20) {
             document.body.style.backgroundImage = `linear-gradient(0deg, ${orange}, ${purple})`;
             h1.style.color = orange;
@@ -404,3 +414,81 @@
         fastPlus.addEventListener('click', fastPlusFunction);
 
         window.addEventListener('keydown', keysPressed);
+
+
+
+          /*   Responsive   */
+
+
+        let responsiveTablet = window.matchMedia('screen and (max-width: 800px)');
+
+        function responsiveTabletFunction(responsiveTablet) {
+          if(responsiveTablet.matches) {
+            h1.style.fontSize = "40px";
+            h1.style.marginTop = "30px";
+            h1.style.animation = "1s h1TabletAppear";
+            h2.style.fontSize = "20px";
+            h2.style.animation = "1.3s h2TabletAppear";
+            h3.style.fontSize = "20px";
+
+
+            for(let a=0; a<direction.length; a++) {
+              direction[a].style.paddingTop = "5px";
+              direction[a].style.paddingBottom = "5px";
+              direction[a].style.paddingLeft = "10px";
+              direction[a].style.paddingRight = "10px";
+              direction[a].style.marginTop = "5px";
+              direction[a].style.marginBottom = "5px";
+              direction[a].style.marginLeft = "5px";
+              direction[a].style.marginRight = "5px";
+              direction[a].style.fontSize = "30px";
+            }
+
+            number.style.marginLeft = "20px";
+            number.style.fontSize = "40px";
+            grade.style.marginRight = " 13px";
+            grade.style.fontSize = "40px";
+          }
+
+
+        }
+
+        responsiveTabletFunction(responsiveTablet);
+        responsiveTablet.addListener(responsiveTabletFunction(responsiveTablet));
+
+
+
+        let responsiveMobile = window.matchMedia('screen and (max-width: 430px)');
+
+        function responsiveMobileFunction(responsiveMobile) {
+          if(responsiveMobile.matches) {
+            h1.style.fontSize = "9vw";
+            h1.style.animation = "1s h1MobileAppear";
+            h2.style.fontSize = "7vw";
+            h2.style.animation = "1.3s h2MobileAppear";
+            h3.style.fontSize = "7vw";
+
+
+            for(let a=0; a<direction.length; a++) {
+              direction[a].style.paddingTop = "5px";
+              direction[a].style.paddingBottom = "5px";
+              direction[a].style.paddingLeft = "10px";
+              direction[a].style.paddingRight = "10px";
+              direction[a].style.marginTop = "5px";
+              direction[a].style.marginBottom = "7px";
+              direction[a].style.marginLeft = "1px";
+              direction[a].style.marginRight = "1px";
+              direction[a].style.fontSize = "6vw";
+            }
+
+            number.style.marginLeft = "9px";
+            number.style.fontSize = "9vw";
+            grade.style.marginRight = " 6px";
+            grade.style.fontSize = "9vw";
+
+          }
+
+        }
+
+        responsiveMobileFunction(responsiveMobile);
+        responsiveMobile.addListener(responsiveMobileFunction(responsiveMobile));
