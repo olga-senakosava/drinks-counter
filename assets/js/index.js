@@ -137,6 +137,7 @@
   h3.style.fontSize = "30px";
   h3.style.transform = "translateX(-50%)";
   h3.style.animation = "2.5s h3Appear";
+  h3.style.width = "100%";
 
 
 
