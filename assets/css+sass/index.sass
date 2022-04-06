@@ -3,97 +3,101 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Geo&display=swap')
 
+
+$purple: #490051
+$cyan: #1DD5C7
+$pink: #f95f85
+$magenta: #fa257d
+$orange: #FF9A3C
+
 *
   margin: 0
   padding: 0
   box-sizing: border-box
 
-  body
+::-webkit-scrollbar
+  width: 5px
 
 
-  .home
-    text-align: left
-    background-color: black
-    padding: 10px
-    width: 130px
+::-webkit-scrollbar-track
+  background-color: $purple
+
+::-webkit-scrollbar-thumb
+  background-image: linear-gradient(0deg, $cyan, $purple)
 
 
-    a
-      text-decoration: none
-      color: beige
-      display: flex
+::-webkit-scrollbar-thumb:hover
+  background-image: linear-gradient(0deg, $cyan, $purple)
+
+
+
+//  Styling the BACK TO OLGA button in the top-left corner of the page
+
+
+body
+
+.home
+  text-align: left
+  background-color: black
+  padding: 10px
+  width: 130px
+  animation: 1s homeAppear
+
+
+  a
+    text-decoration: none
+    color: beige
+    display: flex
+    align-items: center
+
+
+    img
+      width: 30px
+      height: auto
+      margin-right: 20px
+
+    .back-to-olga-container
       align-items: center
 
-      img
-        width: 30px
-        height: auto
-        margin-right: 20px
-
-      .back-to-olga-container
-        align-items: center
-
-        .back
-          font-family: "Poiret One", cursive
-          font-size: 15px
+      .back
+        font-family: "Poiret One", cursive
+        font-size: 15px
 
 
-        .olga
-          font-family: "Megrim", cursive
-          font-size: 19px
+      .olga
+        font-family: "Megrim", cursive
+        font-size: 19px
+
+.direction:hover
+  color: black
+
+// Animations
 
 
-
-
+@keyframes homeAppear
+  0%
+    opacity: 0
+    margin-left: -300px
+  100%
+    opacity: 1
+    margin-left: 0px
 
 
 @keyframes h1Appear
   0%
     opacity: 0
-    font-size: 0px
+    margin-left: -1000px
   100%
     opacity: 1
-    font-size: 70px
+    margin-left: 0px
 
 @keyframes h2Appear
   0%
     opacity: 0
-    font-size: 0px
+    margin-right: -1000px
   100%
     opacity: 1
-    font-size: 30px
-
-@keyframes h1TabletAppear
-  0%
-    opacity: 0
-    font-size: 0px
-  100%
-    opacity: 1
-    font-size: 40px
-
-@keyframes h2TabletAppear
-  0%
-    opacity: 0
-    font-size: 0px
-  100%
-    opacity: 1
-    font-size: 20px
-
-@keyframes h1MobileAppear
-  0%
-    opacity: 0
-    font-size: 0vw
-  100%
-    opacity: 1
-    font-size: 9vw
-
-@keyframes h2MobileAppear
-  0%
-    opacity: 0
-    font-size: 0vw
-  100%
-    opacity: 1
-    font-size: 7vw
-
+    margin-right: 0px
 
 
 
@@ -127,6 +131,7 @@
     opacity: 1
     z-index: 9999
 
+
 @keyframes imageAppear
   0%
     opacity: 0
@@ -138,21 +143,85 @@
     opacity: 1
     height: 150px
 
+
 @keyframes h3Appear
   0%
     opacity: 0
-    margin-left: -30px
+    margin-left: -50px
   80%
     opacity: 0
-    margin-left: -30px
+    margin-left: -50px
   100%
     opacity: 1
     margin-left: 0px
+
 
 @keyframes counterAppear
   0%
     opacity: 0
     margin-bottom: -100px
+    overflow: hidden
+
+  50%
+    opacity: 0
+    margin-bottom: -100px
+    overflow: hidden
+
   100%
     opacity: 1
     margin-bottom: 0px
+    overflow: hidden
+
+
+
+//  Making the website responsive
+
+
+@media screen and (max-width: 800px)
+  h1
+    font-size: 40px !important
+    margin-top: 30px !important
+
+  h2
+    font-size: 20px !important
+
+  .image-title
+    font-size: 20px !important
+
+  .direction
+    padding: 5px 10px !important
+    margin: 5px !important
+    font-size: 30px !important
+
+  .number
+    margin-left: 20px !important
+    font-size: 40px !important
+
+  .grade
+    margin-right: 13px !important
+    font-size: 40px !important
+
+
+
+@media screen and (max-width: 430px)
+  h1
+   font-size: 9vw !important
+
+  h2
+    font-size: 7vw !important
+
+  .image-title
+    font-size: 7vw !important
+
+  .direction
+    padding: 5px 10px !important
+    margin: 5px 1px 7px 1px !important
+    font-size: 6vw !important
+
+  .number
+    margin-left: 9px !important
+    font-size: 9vw !important
+
+  .grade
+    margin-right: 6px !important
+    font-size: 9vw !important

@@ -4,6 +4,9 @@
   let magenta = "#fa257d";
   let orange = "#FF9A3C";
 
+
+  /*  Styling body  */
+
   let bodyCss = `
   font-family: sans-serif;
   text-align: center;
@@ -17,29 +20,32 @@
 
   document.body.style.cssText = bodyCss;
 
+  /*  Creating new elements and styling them  */
 
   let h1 = document.createElement('h1');
   h1.innerHTML = "What drink would you like?";
   document.body.append(h1);
-  h1.style.marginTop = "0px";
   h1.style.fontFamily = "'VT323', monospace";
   h1.style.fontWeight = "normal";
   h1.style.color = cyan;
-  h1.style.fontSize = "70px";
   h1.style.lineHeight = "1.3";
-  h1.style.animation = "1s h1Appear";
+  h1.style.marginTop = "0px";
+  h1.style.fontSize = "70px";
+  h1.style.animation = "0.7s h1Appear";
+
 
 
   let h2 = document.createElement('h2');
   h2.innerHTML = "select your temperature";
   document.body.append(h2);
   h2.style.fontFamily = "'Geo', sans-serif";
-  h2.style.fontSize = "30px";
   h2.style.letterSpacing = "0.1em";
   h2.style.color = cyan;
   h2.style.fontWeight = "normal";
   h2.style.lineHeight = "2";
-  h2.style.animation = "1.3s h2Appear"
+  h2.style.fontSize = "30px";
+  h2.style.animation = "0.7s h2Appear"
+
 
 
   let arrowCyan = "assets/img/arrow-cyan.svg";
@@ -124,13 +130,14 @@
   h3.style.fontFamily = "'Geo', sans-serif";
   h3.style.color = purple;
   h3.style.letterSpacing = "0.1em";
-  h3.style.fontSize = "30px";
   h3.style.marginTop = "25px";
   h3.style.position = "absolute";
   h3.style.top = "60%";
   h3.style.left = "50%";
+  h3.style.fontSize = "30px";
   h3.style.transform = "translateX(-50%)";
   h3.style.animation = "2.5s h3Appear";
+
 
 
 
@@ -151,15 +158,10 @@
   let number = document.createElement('span');
   number.className = "number";
   number.innerHTML = "0";
-
-
-  let numberCssText = `
-  color: ${purple};
-  font-size: 50px;
-  font-family: 'Geo', sans-serif;
-  `;
-  number.style.cssText = numberCssText;
+  number.style.fontSize = "50px";
   number.style.marginLeft = "40px";
+  number.style.color = purple;
+  number.style.fontFamily = "'Geo', sans-serif";
 
 
 
@@ -181,8 +183,11 @@
 
 
   let grade = document.querySelector('.grade');
-  grade.style.cssText = numberCssText;
   grade.style.marginRight = " 33px";
+  grade.style.color = purple;
+  grade.style.fontFamily = "'Geo', sans-serif";
+  grade.style.fontSize = "50px";
+
 
   let direction = document.querySelectorAll('.direction');
 
@@ -208,6 +213,10 @@
   counter.style.bottom = "7%";
   counter.style.left = "0";
   counter.style.right = "0";
+
+
+
+  /*  Creating functions to make the buttons work and the images change  */
 
 
 
@@ -355,6 +364,7 @@
           }
 
 
+            // a part of the conditions() function that changes the background gradient colors depending on the temperature
 
 
           if(number.innerHTML >= 20) {
@@ -385,6 +395,7 @@
         }
 
 
+           // making it possible to change the counter values by pressing Left, Right, Down and Up keyboard keys
 
         function keysPressed() {
           if(event.key == "ArrowLeft") {
@@ -417,78 +428,94 @@
 
 
 
-          /*   Responsive   */
+    //  Responsive: I tried, but failed
 
 
-        let responsiveTablet = window.matchMedia('screen and (max-width: 800px)');
 
-        function responsiveTabletFunction(responsiveTablet) {
-          if(responsiveTablet.matches) {
-            h1.style.fontSize = "40px";
-            h1.style.marginTop = "30px";
-            h1.style.animation = "1s h1TabletAppear";
-            h2.style.fontSize = "20px";
-            h2.style.animation = "1.3s h2TabletAppear";
-            h3.style.fontSize = "20px";
+    /*      window.addEventListener('resize', responsiveFunction);
 
 
-            for(let a=0; a<direction.length; a++) {
-              direction[a].style.paddingTop = "5px";
-              direction[a].style.paddingBottom = "5px";
-              direction[a].style.paddingLeft = "10px";
-              direction[a].style.paddingRight = "10px";
-              direction[a].style.marginTop = "5px";
-              direction[a].style.marginBottom = "5px";
-              direction[a].style.marginLeft = "5px";
-              direction[a].style.marginRight = "5px";
-              direction[a].style.fontSize = "30px";
+          function responsiveFunction() {
+            let responsiveWidth = document.documentElement.clientWidth;
+
+            if(responsiveWidth >= 801) {
+              h1.style.marginTop = "0px";
+              h1.style.fontSize = "70px";
+              h1.style.animation = "1s h1Appear";
+              h2.style.fontSize = "30px";
+              h2.style.animation = "1.3s h2Appear"
+              h3.style.fontSize = "30px";
+              number.style.fontSize = "50px";
+              number.style.marginLeft = "40px";
+              grade.style.marginRight = " 33px";
+
+              for(let a=0; a<direction.length; a++) {
+                direction[a].style.paddingTop = "10px";
+                direction[a].style.paddingBottom = "10px";
+                direction[a].style.paddingLeft = "20px";
+                direction[a].style.paddingRight = "20px";
+                direction[a].style.marginTop = "10px";
+                direction[a].style.marginBottom = "10px";
+                direction[a].style.marginLeft = "10px";
+                direction[a].style.marginRight = "10px";
+                direction[a].style.fontSize = "40px";
+              }
             }
 
-            number.style.marginLeft = "20px";
-            number.style.fontSize = "40px";
-            grade.style.marginRight = " 13px";
-            grade.style.fontSize = "40px";
-          }
 
-
-        }
-
-        responsiveTabletFunction(responsiveTablet);
-        responsiveTablet.addListener(responsiveTabletFunction(responsiveTablet));
+            if(responsiveWidth <= 800 && responsiveWidth >=431) {
+                h1.style.fontSize = "40px";
+                h1.style.marginTop = "30px";
+                h1.style.animation = "1s h1TabletAppear";
+                h2.style.fontSize = "20px";
+                h2.style.animation = "1.3s h2TabletAppear";
+                h3.style.fontSize = "20px";
 
 
 
-        let responsiveMobile = window.matchMedia('screen and (max-width: 430px)');
+                for(let a=0; a<direction.length; a++) {
+                  direction[a].style.paddingTop = "5px";
+                  direction[a].style.paddingBottom = "5px";
+                  direction[a].style.paddingLeft = "10px";
+                  direction[a].style.paddingRight = "10px";
+                  direction[a].style.marginTop = "5px";
+                  direction[a].style.marginBottom = "5px";
+                  direction[a].style.marginLeft = "5px";
+                  direction[a].style.marginRight = "5px";
+                  direction[a].style.fontSize = "30px";
+                }
 
-        function responsiveMobileFunction(responsiveMobile) {
-          if(responsiveMobile.matches) {
-            h1.style.fontSize = "9vw";
-            h1.style.animation = "1s h1MobileAppear";
-            h2.style.fontSize = "7vw";
-            h2.style.animation = "1.3s h2MobileAppear";
-            h3.style.fontSize = "7vw";
-
-
-            for(let a=0; a<direction.length; a++) {
-              direction[a].style.paddingTop = "5px";
-              direction[a].style.paddingBottom = "5px";
-              direction[a].style.paddingLeft = "10px";
-              direction[a].style.paddingRight = "10px";
-              direction[a].style.marginTop = "5px";
-              direction[a].style.marginBottom = "7px";
-              direction[a].style.marginLeft = "1px";
-              direction[a].style.marginRight = "1px";
-              direction[a].style.fontSize = "6vw";
+                number.style.marginLeft = "20px";
+                number.style.fontSize = "40px";
+                grade.style.marginRight = " 13px";
+                grade.style.fontSize = "40px";
             }
 
-            number.style.marginLeft = "9px";
-            number.style.fontSize = "9vw";
-            grade.style.marginRight = " 6px";
-            grade.style.fontSize = "9vw";
+            if(responsiveWidth <= 430) {
+              h1.style.fontSize = "9vw";
+              h1.style.animation = "1s h1MobileAppear";
+              h2.style.fontSize = "7vw";
+              h2.style.animation = "1.3s h2MobileAppear";
+              h3.style.fontSize = "7vw";
 
+
+              for(let a=0; a<direction.length; a++) {
+                direction[a].style.paddingTop = "5px";
+                direction[a].style.paddingBottom = "5px";
+                direction[a].style.paddingLeft = "10px";
+                direction[a].style.paddingRight = "10px";
+                direction[a].style.marginTop = "5px";
+                direction[a].style.marginBottom = "7px";
+                direction[a].style.marginLeft = "1px";
+                direction[a].style.marginRight = "1px";
+                direction[a].style.fontSize = "6vw";
+              }
+
+              number.style.marginLeft = "9px";
+              number.style.fontSize = "9vw";
+              grade.style.marginRight = " 6px";
+              grade.style.fontSize = "9vw";
+            }
           }
 
-        }
-
-        responsiveMobileFunction(responsiveMobile);
-        responsiveMobile.addListener(responsiveMobileFunction(responsiveMobile));
+*/
