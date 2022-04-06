@@ -33,43 +33,48 @@ $orange: #FF9A3C
 
 //  Styling the BACK TO OLGA button in the top-left corner of the page
 
+html
+  min-height: 100%
 
 body
-
-.home
-  text-align: left
-  background-color: black
-  padding: 10px
-  width: 130px
-  animation: 1s homeAppear
-
-
-  a
-    text-decoration: none
-    color: beige
+  .home-container
     display: flex
-    align-items: center
+    justify-content: flex-start
+    .home
+      background-color: black
+      padding: 10px
+      text-align: center
+      animation: 1s homeAppear
 
 
-    img
-      width: 30px
-      height: auto
-      margin-right: 20px
-
-    .back-to-olga-container
-      align-items: center
-
-      .back
-        font-family: "Poiret One", cursive
-        font-size: 15px
+      a
+        text-decoration: none
+        color: beige
+        display: flex
+        align-items: center
 
 
-      .olga
-        font-family: "Megrim", cursive
-        font-size: 19px
+        .logo
+          width: 30px
+          height: auto
 
-.direction:hover
-  color: black
+    .arrow-to-olga-container
+      display: block
+      margin: 14px 10px 12px 5px
+
+      .arrow-to-olga
+        width: 20px
+        height: 20px
+        transform: rotate(90deg)
+
+
+    //      .olga
+            font-family: "Megrim", cursive
+            font-size: 19px
+
+//  .arrow-to-olga-container
+    display: none
+    .arrow-to-olga
 
 // Animations
 
@@ -205,10 +210,10 @@ body
 
 @media screen and (max-width: 430px)
   h1
-   font-size: 9vw !important
+   font-size: 8vw !important
 
   h2
-    font-size: 7vw !important
+    font-size: 5vw !important
 
   .image-title
     font-size: 7vw !important
@@ -225,3 +230,63 @@ body
   .grade
     margin-right: 6px !important
     font-size: 9vw !important
+
+
+//@media screen and (orientation: landscape)
+
+  body
+
+    .home
+      padding: 10px
+      width: 50px !important
+
+      a
+
+        .logo
+          width: 25px
+
+        .back-to-olga-container
+
+          .back
+            display: none
+
+
+          .olga
+            display: none
+
+    .arrow-to-olga-container
+      display: block
+      margin: 14px 10px 12px 5px
+
+      .arrow-to-olga
+        width: 20px
+        height: 20px
+        transform: rotate(90deg)
+
+    h1
+     margin-top: 0px !important
+
+    h2
+
+    .drink
+      position: static !important
+      transform: translateX(0%) !important
+      height: 100px !important
+
+    .arrow
+      width: 20px !important
+
+    .image-title
+      font-size: 5vw !important
+      position: static !important
+      transform: translateX(0%) !important
+
+    .counter
+      position: static !important
+      margin-top: 15px
+
+      .direction
+
+      .number
+
+      .grade

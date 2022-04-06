@@ -13,7 +13,7 @@
   transition: all 0.5s;
   background-repeat: no-repeat;
   background-image: linear-gradient(0deg, ${cyan}, ${purple});
-  height: 100vh;
+  min-height: 100%;
   overflow-x: hidden;
   }
     `
@@ -64,6 +64,7 @@
 
 
   let arrow1 = document.createElement('img');
+  arrow1.className = "arrow";
   arrow1.src = arrowCyan;
   document.body.append(arrow1);
   arrow1.style.cssText = arrowCss;
@@ -71,6 +72,7 @@
   arrow1.style.animation = "1.3s arrowMove";
 
   let arrow2 = document.createElement('img');
+  arrow2.className = "arrow";
   arrow2.src = arrowCyan;
   document.body.append(arrow2);
   arrow2.style.cssText = arrowCss;
@@ -79,6 +81,7 @@
 
 
   let arrow3 = document.createElement('img');
+  arrow3.className = "arrow";
   arrow3.src = arrowCyanPurple;
   document.body.append(arrow3);
   arrow3.style.cssText = arrowCss;
@@ -87,6 +90,7 @@
 
 
   let arrow4 = document.createElement('img');
+  arrow4.className = "arrow";
   arrow4.src = arrowPurple;
   document.body.append(arrow4);
   arrow4.style.cssText = arrowCss;
@@ -95,6 +99,7 @@
 
 
   let arrow5 = document.createElement('img');
+  arrow5.className = "arrow";
   arrow5.src = arrowPurple;
   document.body.append(arrow5);
   arrow5.style.cssText = arrowCss;
@@ -107,6 +112,7 @@
 
 
   let image = document.createElement('img');
+  image.className = "drink";
   image.style.height = "150px";
   image.style.marginTop = "20px";
   image.style.position = "absolute";
@@ -144,6 +150,7 @@
 
 
   let counter = document.createElement('div');
+  counter.className = "counter";
   document.body.append(counter);
   counter.style.animation = "1s counterAppear";
 
