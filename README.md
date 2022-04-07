@@ -28,7 +28,11 @@ You can change the counter's value by:
   - `+10` increases the value by 10
   - `-10` decreases the value by 10
  * pressing keyboard keys:
-  - `+1`
+  - `→` increases the value by 1
+  - `←` decreases the value by 1
+  - `↑` increases the value by 10
+  - `↓` decreases the value by 10
+
 
 
 ## Vibe
