@@ -23,15 +23,15 @@ To spice things up, the counter is expressed in Celsius grades, that correspond 
 
 You can change the counter's value by:
  * clicking on the buttons shown on the screen
-  - `+1` increases the value by 1
-  - `-1` decreases the value by 1
-  - `+10` increases the value by 10
-  - `-10` decreases the value by 10
+    - `+1` increases the value by 1
+    - `-1` decreases the value by 1
+    - `+10` increases the value by 10
+    - `-10` decreases the value by 10
  * pressing keyboard keys:
-  - `→` increases the value by 1
-  - `←` decreases the value by 1
-  - `↑` increases the value by 10
-  - `↓` decreases the value by 10
+    - `→` increases the value by 1
+    - `←` decreases the value by 1
+    - `↑` increases the value by 10
+    - `↓` decreases the value by 10
 
 
 
